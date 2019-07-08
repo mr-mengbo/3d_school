@@ -8,7 +8,8 @@ module.exports = merge(baseConfig, {
     contentBase: path.join(__dirname, 'dist'),
     open: true,
     compress: true,
-    port: 8888
+    port: 8888,
+    host: '192.168.1.84'
   },
   module:{
     rules: [

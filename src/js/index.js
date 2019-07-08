@@ -3,19 +3,21 @@ import '../style/style';
 // import '../utils/selfAdaption';
 import $ from 'jquery';
 console.log($)
-var map = new AMap.Map("container", {
+var map = new AMap.Map("mapBox", {
     viewMode:'3D',
-    pitch:45,
-    rotation: -135,
+    pitch: 0,
+    rotation: -180,
     zoom: 18,
-    zooms:[16,20],
-    showBuildingBlock: false, // 设置地图显示3D楼块效果，移动端也可使用。推荐使用。
+    zooms:[16,19],
+    showBuildingBlock: true, // 设置地图显示3D楼块效果，移动端也可使用。推荐使用。
     showLabel: false,
-    center: [116.647295,39.920426],
+    center: [116.648598,39.92043],
     // mapStyle: 'amap://styles/macaron',
     showIndoorMap: false,
     forceVector:true,
+    expandZoomRange: true
 });
+/*
 // 当前示例的目标是展示如何根据规划结果绘制路线，因此walkOption为空对象
 var walkingOption = {}
 
@@ -82,8 +84,11 @@ function parseRouteToPath(route) {
 
     return path
 }
+*/
 // var mybounds = new AMap.Bounds([116.647665,39.921826], [116.647574,39.919119]);
 // map.setBounds(mybounds);
+// var bounds =  map.getBounds();
+// map.setLimitBounds(bounds);
 // 创建Object3DLayer图层
 // var object3Dlayer = new AMap.Object3DLayer();
 // map.add(object3Dlayer);

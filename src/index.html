@@ -9,6 +9,24 @@
     <script src="https://webapi.amap.com/maps?v=1.4.15&key=35d07dbc5cf281a1bcfe8eb168b815c8&plugin=AMap.Walking"></script>
 </head>
 <body>
-<div id="container"></div>
+    <div id="container">
+        <div id="mapBox"></div>
+        <div class="serach">
+            <input type="text" placeholder="输入地点查询">
+            <button>搜索</button>
+        </div>
+        <ul class="menu">
+            <li class="school">学校</li>
+            <li class="welcome">迎新</li>
+            <li class="panorama">
+                <img src="${require('./static/panorama_icon.png')}" alt="">
+            </li>
+        </ul>
+        <div class="footer">
+            <img class="periphery" src="${require('./static/periphery_icon.png')}" alt="">
+
+            <img class="service" src="${require('./static/service_icon.png')}" alt="">
+        </div>
+    </div>
 </body>
 </html>
