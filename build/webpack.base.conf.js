@@ -4,7 +4,8 @@ var htmlWebpackPlugin = require('html-webpack-plugin');
 var AutodllWebpackpackPlugin = require('autodll-webpack-plugin');
 var config = {
     entry: {
-        index: path.resolve(__dirname, '../src/js/index.js')
+        index: path.resolve(__dirname, '../src/js/index.js'),
+        periphery: path.resolve(__dirname, '../src/js/periphery.js')
     },
     output: {
         path: path.resolve(__dirname, '../dist'),
@@ -42,6 +43,12 @@ var config = {
           title: "index",
           template: path.resolve(__dirname, '../src/index.html'),
           chunks: ['index']
+        }),
+        new htmlWebpackPlugin({
+          filename: "periphery.html",
+          title: "periphery",
+          template: path.resolve(__dirname, '../src/periphery.html'),
+          chunks: ['periphery']
         }),
         new AutodllWebpackpackPlugin({
           inject: true,

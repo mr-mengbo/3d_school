@@ -2,7 +2,6 @@ import '../style/index';
 import '../style/style';
 // import '../utils/selfAdaption';
 import $ from 'jquery';
-console.log($)
 var map = new AMap.Map("mapBox", {
     viewMode:'3D',
     pitch: 0,
@@ -90,26 +89,35 @@ function parseRouteToPath(route) {
 // var bounds =  map.getBounds();
 // map.setLimitBounds(bounds);
 // 创建Object3DLayer图层
-// var object3Dlayer = new AMap.Object3DLayer();
-// map.add(object3Dlayer);
+var object3Dlayer = new AMap.Object3DLayer();
+map.add(object3Dlayer);
 
-// map.plugin(["AMap.GltfLoader"], function () {
-//     var paramCity = {
-//         position: new AMap.LngLat(116.64414,39.919299), // 必须
-//         scale: 8.5, // 非必须，默认1
-//         height: 70,  // 非必须，默认0
-//         scene: 0, // 非必须，默认0
-//     };
+map.plugin(["AMap.GltfLoader"], function () {
+    var paramCity = {
+        position: new AMap.LngLat(116.644296,39.919237), // 必须
+        scale: 8.5, // 非必须，默认1
+        height: 70,  // 非必须，默认0
+        scene: 0, // 非必须，默认0
+    };
 
 
-//     var gltfObj = new AMap.GltfLoader();
+    var gltfObj = new AMap.GltfLoader();
 
-//     gltfObj.load('./static/school/school.gltf', function (gltfCity) {
-//         gltfCity.setOption(paramCity);
-//         gltfCity.rotateX(-90);
-//         gltfCity.rotateY(-180);
-//         gltfCity.rotateZ(-180);
-//         object3Dlayer.add(gltfCity);
-//     });
+    gltfObj.load('http://47.92.118.208:8081/school/school.gltf', function (gltfCity) {
+        gltfCity.setOption(paramCity);
+        gltfCity.rotateX(-90);
+        gltfCity.rotateY(-180);
+        gltfCity.rotateZ(-180);
+        object3Dlayer.add(gltfCity);
+    });
 
-// });   
+});  
+$(".service").click(function(){
+    console.log($(".service-container"))
+    $(".service-container").show();
+    $(".container").show();
+  });
+$(".service-container").click(function() {
+    $(this).hide();
+    $(".container").hide();
+})

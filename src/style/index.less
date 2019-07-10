@@ -12,6 +12,7 @@
     top: 30px;
     padding: 0 10px;
     width: 100%;
+    box-sizing: border-box;
     input {
       border: none;
       outline: none;
@@ -58,9 +59,51 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
-    img {
+    .periphery,
+    .service {
+      display: block;
       width: 50px;
       height: 50px;
+      img {
+        width: 50px;
+        height: 50px;
+      }
+    }
+
+  }
+  .service-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .5);
+  }
+  .container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    background: #fff;
+    z-index: 99;
+    .nav {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      padding: 10px 0 10px 5px;
+      box-sizing: border-box;
+      .item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 12px;
+        img {
+          width: 50px;
+          height: 50px;
+          display: block;
+        }
+      }
     }
   }
 }
