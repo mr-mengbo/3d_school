@@ -8,7 +8,7 @@ var map = new AMap.Map("mapBox", {
     rotation: -180,
     zoom: 18,
     zooms:[16,19],
-    showBuildingBlock: true, // 设置地图显示3D楼块效果，移动端也可使用。推荐使用。
+    showBuildingBlock: false, // 设置地图显示3D楼块效果，移动端也可使用。推荐使用。
     showLabel: false,
     center: [116.648598,39.92043],
     // mapStyle: 'amap://styles/macaron',
