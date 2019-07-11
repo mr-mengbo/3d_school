@@ -5,7 +5,8 @@ var AutodllWebpackpackPlugin = require('autodll-webpack-plugin');
 var config = {
     entry: {
         index: path.resolve(__dirname, '../src/js/index.js'),
-        periphery: path.resolve(__dirname, '../src/js/periphery.js')
+        periphery: path.resolve(__dirname, '../src/js/periphery.js'),
+        panorama:  path.resolve(__dirname, '../src/js/panorama.js')
     },
     output: {
         path: path.resolve(__dirname, '../dist'),
@@ -50,6 +51,12 @@ var config = {
           template: path.resolve(__dirname, '../src/periphery.html'),
           chunks: ['periphery']
         }),
+        new htmlWebpackPlugin({
+          filename: "panorama.html",
+          title: "panorama",
+          template: path.resolve(__dirname, '../src/panorama.html'),
+          chunks: ['panorama']
+        }),        
         new AutodllWebpackpackPlugin({
           inject: true,
           debugger: true,

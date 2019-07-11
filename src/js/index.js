@@ -5,12 +5,12 @@ import $ from 'jquery';
 var map = new AMap.Map("mapBox", {
     viewMode:'3D',
     pitch: 0,
-    rotation: -180,
+    rotation: 0,
     zoom: 18,
     zooms:[16,19],
     showBuildingBlock: false, // 设置地图显示3D楼块效果，移动端也可使用。推荐使用。
     showLabel: false,
-    center: [116.648598,39.92043],
+    center: [116.64863,39.920623],
     // mapStyle: 'amap://styles/macaron',
     showIndoorMap: false,
     forceVector:true,
@@ -94,8 +94,8 @@ map.add(object3Dlayer);
 
 map.plugin(["AMap.GltfLoader"], function () {
     var paramCity = {
-        position: new AMap.LngLat(116.644296,39.919237), // 必须
-        scale: 8.5, // 非必须，默认1
+        position: new AMap.LngLat(116.643785,39.919007), // 必须
+        scale: 9.4, // 非必须，默认1
         height: 70,  // 非必须，默认0
         scene: 0, // 非必须，默认0
     };
@@ -105,7 +105,7 @@ map.plugin(["AMap.GltfLoader"], function () {
 
     gltfObj.load('http://47.92.118.208:8081/school/school.gltf', function (gltfCity) {
         gltfCity.setOption(paramCity);
-        gltfCity.rotateX(-90);
+        gltfCity.rotateX(-95);
         gltfCity.rotateY(-180);
         gltfCity.rotateZ(-180);
         object3Dlayer.add(gltfCity);
