@@ -113,11 +113,36 @@ map.plugin(["AMap.GltfLoader"], function () {
 
 });  
 $(".service").click(function(){
-    console.log($(".service-container"))
     $(".service-container").show();
     $(".container").show();
-  });
+});
+$(".school").click(function(){
+    $(".school-container").show();
+    $(".service-container").show();
+});
 $(".service-container").click(function() {
     $(this).hide();
     $(".container").hide();
+    $(".school-container").hide();
+})
+$(".activity").click(function() {
+    var flag = $(this).attr('data-flag');
+    console.log(flag)
+    if(flag == "true") {
+        var length = $(this).find('.open-title').length + 1 || 1;
+        $(this).animate({
+            height: length * 53 + 'px', 
+        },1000)
+        $(this).attr('data-flag', 'flase')
+        $(this).siblings('.activity').animate({
+            height: '50px', 
+        },1000)
+        $(this).siblings('.activity').attr('data-flag', 'true')
+    }else {
+        $(this).animate({
+            height: '50px', 
+        },1000)
+        $(this).attr('data-flag', 'true')
+        $(this).siblings('.activity').attr('data-flag', 'false')
+    }
 })
