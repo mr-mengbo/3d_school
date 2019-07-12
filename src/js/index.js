@@ -1,8 +1,8 @@
 import '../style/index';
 import '../style/style';
-// import '../utils/selfAdaption';
+import { GetQueryString } from '../utils/util';
 import $ from 'jquery';
-var map = new AMap.Map("mapBox", {
+const map = new AMap.Map("mapBox", {
     viewMode:'3D',
     pitch: 0,
     rotation: 0,
@@ -16,6 +16,52 @@ var map = new AMap.Map("mapBox", {
     forceVector:true,
     expandZoomRange: true
 });
+const provinces = [
+    {
+    "name": "学校北门外",
+    "center": "116.648448, 39.921815",
+    "subDistricts": []
+    }, {
+        "name": "学校北门内",
+        "center": "116.648448,39.921576",
+        "subDistricts": []
+    }
+]
+const x = GetQueryString('x');
+const y = GetQueryString('y');
+if (x && y) {
+    var markers = []; //province见Demo引用的JS文件
+    var marker;
+    for (let i = 0; i < provinces.length; i += 1) {
+        marker = new AMap.Marker({
+            position: provinces[i].center.split(','),
+            offset: new AMap.Pixel(-10, -10),
+            title: provinces[i].name,
+            map: map
+        });
+        var markerContent = document.createElement("div");
+
+        // 点标记中的图标
+        var markerImg = document.createElement("img");
+        markerImg.className = "markerlnglat";
+        markerImg.src = "http://a.amap.com/jsapi_demos/static/demo-center/icons/poi-marker-default.png";
+        markerContent.appendChild(markerImg);
+    
+        marker.on('click', function(e) {
+            console.log(e, i)
+            console.log($('.amap-marker-content'))
+            // 点标记中的文本
+            // var markerSpan = document.createElement("span");
+            // markerSpan.className = 'marker';
+            // markerSpan.innerHTML = provinces[i].name;
+            // markerContent.appendChild(markerSpan);
+            // marker.setContent(markerContent); //更新点标记内容
+        })
+        marker.setContent(markerContent); //更新点标记内容
+    }
+    markers.push(marker);
+    // map.add(marker);
+}
 /*
 // 当前示例的目标是展示如何根据规划结果绘制路线，因此walkOption为空对象
 var walkingOption = {}

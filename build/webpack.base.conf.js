@@ -6,7 +6,8 @@ var config = {
     entry: {
         index: path.resolve(__dirname, '../src/js/index.js'),
         periphery: path.resolve(__dirname, '../src/js/periphery.js'),
-        panorama:  path.resolve(__dirname, '../src/js/panorama.js')
+        panorama:  path.resolve(__dirname, '../src/js/panorama.js'),
+        panoramaContainer:  path.resolve(__dirname, '../src/js/panoramaContainer.js')
     },
     output: {
         path: path.resolve(__dirname, '../dist'),
@@ -56,7 +57,13 @@ var config = {
           title: "panorama",
           template: path.resolve(__dirname, '../src/panorama.html'),
           chunks: ['panorama']
-        }),        
+        }), 
+        new htmlWebpackPlugin({
+          filename: "panoramaContainer.html",
+          title: "panoramaContainer",
+          template: path.resolve(__dirname, '../src/panoramaContainer.html'),
+          chunks: ['panoramaContainer']
+        }),       
         new AutodllWebpackpackPlugin({
           inject: true,
           debugger: true,
