@@ -4,7 +4,25 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
-    <title>北京财贸职业学院</title> 
+    <title>北京财贸职业学院</title>
+    <script>
+    (function (doc, win) {
+        var docEl = doc.documentElement,
+        resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+        recalc = function () {
+            var clientWidth = docEl.clientWidth;
+            if (!clientWidth) return;
+            if(clientWidth>=640){
+                docEl.style.fontSize = '100px';
+            }else{
+                docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+            }
+            };
+        if (!doc.addEventListener) return;
+        win.addEventListener(resizeEvt, recalc, false);
+        doc.addEventListener('DOMContentLoaded', recalc, false);    
+    })(document, window);
+    </script> 
     <script src="https://webapi.amap.com/maps?v=1.4.15&key=35d07dbc5cf281a1bcfe8eb168b815c8&plugin=AMap.PolyEditor"></script>
     <script src="https://webapi.amap.com/maps?v=1.4.15&key=35d07dbc5cf281a1bcfe8eb168b815c8&plugin=AMap.Walking"></script>
 <link href="./css/index.css" rel="stylesheet"></head>
@@ -13,13 +31,21 @@
         <div id="mapBox"></div>
         <div class="serach">
             <input type="text" placeholder="输入地点查询">
-            <button>搜索</button>
+            <button class="search-btn">搜索</button>
+            <ul class="search-list" style="display: none;">
+ 
+            </ul>
         </div>
         <ul class="menu">
-            <li class="school">学校</li>
-            <li class="welcome">迎新</li>
+            <li class="school">
+                <a href="./school.html">
+                    学校
+                </a>
+            </li>
             <li class="panorama">
-                <img src="./static/panorama_icon.png" alt="">
+                <a href="./panoramaContainer.html">
+                    <img src="./static/panorama_icon.png" alt="">
+                </a>
             </li>
         </ul>
         <div class="footer">
@@ -28,6 +54,32 @@
             </a>
             <div class="service">
                 <img class="" src="./static/service_icon.png" alt="">
+            </div>
+        </div>
+        <div class="head" style="display: none;">
+            <a class="return" href="./index.html"><</a>
+            <span>退出导航</span>
+        </div>
+        <div class="distance" style="display: none;">
+            <p class="title">
+            </p>
+            <p class="daohang">
+                <img src="" alt="">
+                <span>到这去</span>
+            </p>
+        </div>
+        <div class="nearby" style="display: none;">
+            <div class="nearby-con">
+                <div class="nearby-details" data-position="116.64669,39.919903">
+                    <img src="" alt="">
+                    <div class="left">
+                        <span class="left-title">基本伙</span>
+                        <span>
+                            营业时间<br/>
+                            早餐： 06：00-09：30
+                        </span>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="service-container" style="display: none">
@@ -75,51 +127,7 @@
             <div class="activity">
                 <p class="activity-title">关于</p>
             </div>                                                
-        </div> 
-        <div class="school-container" style="display: none">
-            <img src="" alt="">
-            <ul class="nav">
-                <li class="item">
-                    <img src="./static/food.png" alt="">
-                    <span>人物视角</span>
-                </li>
-                <li class="item">
-                    <img src="./static/wenti.png" alt="">
-                    <span>平面图</span>
-                </li>
-                <li class="item">
-                    <img src="./static/yinhang.png" alt="">
-                    <span>3D视角</span>
-                </li>
-                <li class="item">
-                    <img src="./static/zhusu.png" alt="">
-                    <span>漫游</span>
-                </li>
-            </ul>   
-            <div class="activity" data-flag="true">
-                <p class="activity-title">活动查询</p>
-                <div class="open">
-                    <p class="open-title">活动查询</p>
-                    <p class="open-title">活动查询</p>
-                    <p class="open-title">活动查询</p>
-                </div>
-            </div> 
-            <div class="activity" data-flag="true">
-                <p class="activity-title">校庆专题</p>
-                <div class="open">
-                    <p class="open-title">活动查询</p>
-                    <p class="open-title">活动查询</p>
-                    <p class="open-title">活动查询</p>
-                    <p class="open-title">活动查询</p>
-                </div>
-            </div>
-            <div class="activity">
-                <p class="activity-title">迎新专题</p>
-            </div> 
-            <div class="activity">
-                <p class="activity-title">关于</p>
-            </div>                                                
-        </div>        
+        </div>     
     </div>
-<script type="text/javascript" src="./dll/vendor.js"></script><script type="text/javascript" src="./index.e75d750e714e402b4d68.js"></script></body>
+<script type="text/javascript" src="./dll/vendor.js"></script><script type="text/javascript" src="./index.bbe5f085db8ceeddfb87.js"></script></body>
 </html>

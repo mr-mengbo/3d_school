@@ -5,6 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>北京财贸职业学院</title>
+  <script>
+    (function (doc, win) {
+        var docEl = doc.documentElement,
+        resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+        recalc = function () {
+            var clientWidth = docEl.clientWidth;
+            if (!clientWidth) return;
+            if(clientWidth>=640){
+                docEl.style.fontSize = '100px';
+            }else{
+                docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+            }
+            };
+        if (!doc.addEventListener) return;
+        win.addEventListener(resizeEvt, recalc, false);
+        doc.addEventListener('DOMContentLoaded', recalc, false);    
+    })(document, window);
+    </script> 
 </head>
 <body>
   <div class="periphery">
@@ -51,33 +69,7 @@
       </li>
     </ul>
     <ul class="title">
-        <li class="item">
-          <span>美食</span>
-        </li>
-        <li class="item">
-          <span>文体</span>
-        </li>
-        <li class="item">
-          <span>银行</span>
-        </li>
-        <li class="item">
-          <span>住宿</span>
-        </li>
-        <li class="item">
-          <span>商店</span>
-        </li>
-        <li class="item">
-          <span>物流</span>
-        </li>
-        <li class="item">
-          <span>医疗</span>
-        </li>
-        <li class="item">
-          <span>一卡通</span>
-        </li>
-        <li class="item">
-          <span>迎新</span>
-        </li>
+        
     </ul>
   </div>
 </body>

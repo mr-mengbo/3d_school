@@ -5,6 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>北京财贸职业学院</title>
+  <script>
+    (function (doc, win) {
+        var docEl = doc.documentElement,
+        resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+        recalc = function () {
+            var clientWidth = docEl.clientWidth;
+            if (!clientWidth) return;
+            if(clientWidth>=640){
+                docEl.style.fontSize = '100px';
+            }else{
+                docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+            }
+            };
+        if (!doc.addEventListener) return;
+        win.addEventListener(resizeEvt, recalc, false);
+        doc.addEventListener('DOMContentLoaded', recalc, false);    
+    })(document, window);
+    </script> 
 <link href="./css/periphery.css" rel="stylesheet"></head>
 <body>
   <div class="periphery">
@@ -52,7 +70,9 @@
     </ul>
     <ul class="title">
         <li class="item">
-          <span>美食</span>
+          <a href="./index.html?nearby=food">
+            <span>美食</span>
+          </a>
         </li>
         <li class="item">
           <span>文体</span>
@@ -80,5 +100,5 @@
         </li>
     </ul>
   </div>
-<script type="text/javascript" src="./dll/vendor.js"></script><script type="text/javascript" src="./periphery.e75d750e714e402b4d68.js"></script></body>
+<script type="text/javascript" src="./dll/vendor.js"></script><script type="text/javascript" src="./periphery.bbe5f085db8ceeddfb87.js"></script></body>
 </html>
