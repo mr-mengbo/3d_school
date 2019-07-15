@@ -263,7 +263,7 @@ map.plugin(["AMap.GltfLoader"], function () {
 
     var gltfObj = new AMap.GltfLoader();
 
-    gltfObj.load('http://47.92.118.208:8081/school/school.gltf', function (gltfCity) {
+    gltfObj.load('http://47.92.118.208:8081/oldschool/school.gltf', function (gltfCity) {
         gltfCity.setOption(paramCity);
         gltfCity.rotateX(-95);
         gltfCity.rotateY(-180);
