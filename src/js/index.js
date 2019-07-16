@@ -127,7 +127,6 @@ $('.search-btn').click(function() {
 if (nearby) {
     $('.head').show().find('span').html('退出周边');
     $('.return').attr('href', './periphery.html');
-    let mapList = [];
     // 获取周边详细信息
     $.ajax({ 
         url: `http://47.92.118.208/school-map/circum/getByTypeId?typeId=${nearby}`, 
@@ -151,26 +150,26 @@ if (nearby) {
                         </div>
                         `
                     )
+                    $('.nearby-details').click(function () {
+                        $('.nearby').hide();
+                        $('.footer').hide();
+                        const position = $(this).attr('data-position').split(',');
+                        map.setCenter(position);
+                        const marker = new AMap.Marker({
+                            position,
+                            offset: new AMap.Pixel(-10, -10),
+                            icon: 'https://webapi.amap.com/theme/v1.3/markers/n/end.png',
+                            map: map
+                        });
+                        marker.on('click', function(e) {
+                            walk([116.648432,39.92166], position, name)
+                        })
+                    })
                 })
             }
         }
     });
     $('.nearby').show();
-    $('.nearby-details').click(function () {
-        $('.nearby').hide();
-        $('.footer').hide();
-        const position = $(this).attr('data-position').split(',');
-        map.setCenter(position);
-        const marker = new AMap.Marker({
-            position,
-            offset: new AMap.Pixel(-10, -10),
-            icon: 'https://webapi.amap.com/theme/v1.3/markers/n/end.png',
-            map: map
-        });
-        marker.on('click', function(e) {
-            walk([116.648432,39.92166], position, name)
-        })
-    })
 }
 // 绘制步行路线
 function walk(start, end, name) {

@@ -10,6 +10,16 @@ $.ajax({
             const periphery = res.data;
             periphery.forEach(item => {
                 console.log(item)
+                $('.nav').append(
+                    `
+                    <li class="item">
+                        <a href="./index.html?nearby=${item.id}">
+                            <img src="${item.imgUrl}" alt="">
+                            <span>${item.type}</span>
+                        </a>
+                    </li>
+                    `
+                )
                 $('.title').append(
                     `
                     <li class="item">
