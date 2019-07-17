@@ -4,7 +4,7 @@ import { GetQueryString, fuzzyQuery } from '../utils/util';
 import $ from 'jquery';
 // 图片图层
 var imageLayer = new AMap.ImageLayer({
-    url: 'http://47.92.118.208:8081/dituwenjian/dixing.png',
+    url: 'http://47.92.118.208:8081/dixing.png',
     bounds: new AMap.Bounds(
         [116.643732,39.919007],
         [116.650965,39.922031]
@@ -250,21 +250,21 @@ function parseRouteToPath(route) {
 // 创建Object3DLayer图层
 var object3Dlayer = new AMap.Object3DLayer();
 map.add(object3Dlayer);
-
+//  116.643785,39.919007
 map.plugin(["AMap.GltfLoader"], function () {
     var paramCity = {
-        position: new AMap.LngLat(116.643785,39.919007), // 必须
-        scale: 9.4, // 非必须，默认1
-        height: 70,  // 非必须，默认0
+        position: new AMap.LngLat(116.648109,39.920476), // 必须
+        scale: 7.4, // 非必须，默认1
+        height: -110,  // 非必须，默认0
         scene: 0, // 非必须，默认0
     };
 
 
     var gltfObj = new AMap.GltfLoader();
 
-    gltfObj.load('http://47.92.118.208:8081/oldschool/school.gltf', function (gltfCity) {
+    gltfObj.load('http://47.92.118.208:8081/ceshi03/ceshi03.gltf', function (gltfCity) {
         gltfCity.setOption(paramCity);
-        gltfCity.rotateX(-95);
+        gltfCity.rotateX(-90);
         gltfCity.rotateY(-180);
         gltfCity.rotateZ(-180);
         object3Dlayer.add(gltfCity);
