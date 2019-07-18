@@ -6,15 +6,17 @@ import $ from 'jquery';
 var imageLayer = new AMap.ImageLayer({
     url: 'http://47.92.118.208:8081/dixing.png',
     bounds: new AMap.Bounds(
-        [116.643732,39.919007],
-        [116.650965,39.922031]
+        [116.643763,39.919128],
+        [116.650662,39.922124]
     ),
     zooms: [16, 19]
 });
 const map = new AMap.Map("mapBox", {
     viewMode:'3D',
-    pitch: 0,
-    rotation: 0,
+    // rotateEnable:false,
+    // pitchEnable:false,
+    pitch: 45,
+    rotation: 25,
     zoom: 18,
     zooms:[16,19],
     showBuildingBlock: false, // 设置地图显示3D楼块效果，移动端也可使用。推荐使用。
@@ -253,16 +255,16 @@ map.add(object3Dlayer);
 //  116.643785,39.919007
 map.plugin(["AMap.GltfLoader"], function () {
     var paramCity = {
-        position: new AMap.LngLat(116.648109,39.920476), // 必须
-        scale: 7.4, // 非必须，默认1
-        height: -110,  // 非必须，默认0
+        position: new AMap.LngLat(116.647872,39.920679), // 必须
+        scale: 71, // 非必须，默认1
+        height: 0,  // 非必须，默认0
         scene: 0, // 非必须，默认0
     };
 
 
     var gltfObj = new AMap.GltfLoader();
 
-    gltfObj.load('http://47.92.118.208:8081/ceshi03/ceshi03.gltf', function (gltfCity) {
+    gltfObj.load('http://47.92.118.208:8081/ceshi06/ceshi06.gltf', function (gltfCity) {
         gltfCity.setOption(paramCity);
         gltfCity.rotateX(-90);
         gltfCity.rotateY(-180);
@@ -300,3 +302,15 @@ $(".activity").click(function() {
         $(this).siblings('.activity').attr('data-flag', 'false')
     }
 })
+// function orientationHandler(event) {
+//     document.getElementById("alpha").innerHTML = event.alpha;
+//     document.getElementById("beta").innerHTML = event.beta;
+//     document.getElementById("gamma").innerHTML = event.gamma;
+//     document.getElementById("heading").innerHTML = event.webkitCompassHeading;
+//     document.getElementById("accuracy").innerHTML = event.webkitCompassAccuracy;
+// }
+// if (window.DeviceOrientationEvent) {
+// window.addEventListener("deviceorientation", orientationHandler, false);
+// } else {
+// document.body.innerHTML = "What user agent u r using???";
+// };
