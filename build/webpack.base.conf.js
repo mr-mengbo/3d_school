@@ -5,11 +5,12 @@ var AutodllWebpackpackPlugin = require('autodll-webpack-plugin');
 var config = {
     entry: {
         index: path.resolve(__dirname, '../src/js/index.js'),
-        periphery: path.resolve(__dirname, '../src/js/periphery.js'),
-        panorama:  path.resolve(__dirname, '../src/js/panorama.js'),
-        panoramaContainer:  path.resolve(__dirname, '../src/js/panoramaContainer.js'),
-        school:  path.resolve(__dirname, '../src/js/school.js'),
-        photo:  path.resolve(__dirname, '../src/js/photo.js')
+        periphery:path.resolve(__dirname, '../src/js/periphery.js'),
+        panorama: path.resolve(__dirname, '../src/js/panorama.js'),
+        panoramaContainer: path.resolve(__dirname, '../src/js/panoramaContainer.js'),
+        school: path.resolve(__dirname, '../src/js/school.js'),
+        photo: path.resolve(__dirname, '../src/js/photo.js'),
+        route: path.resolve(__dirname, '../src/js/route.js'),
     },
     output: {
         path: path.resolve(__dirname, '../dist'),
@@ -77,7 +78,13 @@ var config = {
           title: "photo",
           template: path.resolve(__dirname, '../src/photo.html'),
           chunks: ['photo']
-        }),     
+        }),
+        new htmlWebpackPlugin({
+          filename: "route.html",
+          title: "route",
+          template: path.resolve(__dirname, '../src/route.html'),
+          chunks: ['route']
+        }),              
         new AutodllWebpackpackPlugin({
           inject: true,
           debugger: true,

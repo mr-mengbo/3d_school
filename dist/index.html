@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html>
 <head>
@@ -25,12 +26,19 @@
     </script> 
     <script src="https://webapi.amap.com/maps?v=1.4.15&key=35d07dbc5cf281a1bcfe8eb168b815c8&plugin=AMap.PolyEditor"></script>
     <script src="https://webapi.amap.com/maps?v=1.4.15&key=35d07dbc5cf281a1bcfe8eb168b815c8&plugin=AMap.Walking"></script>
+    <script src="http://a.amap.com/jsapi_demos/static/demo-center/model/js/three.js"></script>
+    <script src="http://a.amap.com/jsapi_demos/static/demo-center/model/js/Detector.js"></script>
+    <!-- <script src="http://a.amap.com/jsapi_demos/static/demo-center/model/js/libs/dat.gui.min.js"></script> -->
+    <!-- <script src="http://a.amap.com/jsapi_demos/static/demo-center/model/js/libs/stats.min.js"></script> -->
+    <script src="http://a.amap.com/jsapi_demos/static/demo-center/model/js/controls/OrbitControls.js"></script>
+    <script src="http://a.amap.com/jsapi_demos/static/demo-center/model/js/loaders/GLTFLoader.js"></script>
 <link href="./css/index.css" rel="stylesheet"></head>
 <body>
     <div id="container">
         <div id="mapBox"></div>
         <div class="serach">
             <input type="text" placeholder="输入地点查询">
+            <img class="find"  src="./static/find.png" alt="">
             <button class="search-btn">搜索</button>
             <ul class="search-list" style="display: none;">
  
@@ -39,21 +47,28 @@
         <ul class="menu">
             <li class="school">
                 <a href="./school.html">
-                    学校
+                    <img src="./static/school.png" alt="">
                 </a>
+                <span>学校</span>
             </li>
             <li class="panorama">
                 <a href="./panoramaContainer.html">
-                    <img src="./static/panorama_icon.png" alt="">
+                    <img src="./static/photo.png" alt="">
                 </a>
+                <span>全景</span>
             </li>
         </ul>
         <div class="footer">
             <a class="periphery" href="./periphery.html">
-                <img  src="./static/periphery_icon.png" alt="">
+                <img  src="./static/round.png" alt="">
+                <span>发现周边</span>
+            </a>
+            <a class="luxian" href="./route.html">
+                <img  src="./static/luxian.png" alt="">
             </a>
             <div class="service">
-                <img class="" src="./static/service_icon.png" alt="">
+                <img class="" src="./static/service.png" alt="">
+                <span>服务中心</span>
             </div>
         </div>
         <div class="head" style="display: none;">
@@ -64,7 +79,7 @@
             <p class="title">
             </p>
             <p class="daohang">
-                <img src="" alt="">
+                <img src="./static/walk.png" alt="">
                 <span>到这去</span>
             </p>
         </div>
@@ -77,46 +92,45 @@
             <img src="" alt="">
             <ul class="nav">
                 <li class="item">
-                    <img src="" alt="">
+                    <img src="./static/renwushijiao.jpg" alt="">
                     <span>人物视角</span>
                 </li>
                 <li class="item">
-                    <img src="" alt="">
+                    <img src="./static/weixingtu.jpg" alt="">
                     <span>平面图</span>
                 </li>
                 <li class="item">
-                    <img src="" alt="">
+                    <img src="./static/3D.jpg" alt="">
                     <span>3D视角</span>
                 </li>
                 <li class="item">
-                    <img src="" alt="">
+                    <img src="./static/manyou.jpg" alt="">
                     <span>漫游</span>
                 </li>
-            </ul>   
-            <div class="activity" data-flag="true">
-                <p class="activity-title">活动查询</p>
-                <div class="open">
-                    <p class="open-title">活动查询</p>
-                    <p class="open-title">活动查询</p>
-                    <p class="open-title">活动查询</p>
+            </ul> 
+            <div class="activity-con">
+                <div class="activity" data-flag="true" data-index="0">
+                    <p class="activity-title">活动查询</p>
+                    <div class="open">
+                    </div>
+                </div> 
+                <div class="activity" data-flag="true" data-index="1">
+                    <p class="activity-title">校庆专题</p>
+                    <div class="open">
+                    </div>
                 </div>
-            </div> 
-            <div class="activity" data-flag="true">
-                <p class="activity-title">校庆专题</p>
-                <div class="open">
-                    <p class="open-title">活动查询</p>
-                    <p class="open-title">活动查询</p>
-                    <p class="open-title">活动查询</p>
-                    <p class="open-title">活动查询</p>
+                <div class="activity" data-flag="true" data-index="2">
+                    <p class="activity-title">迎新专题</p>
+                    <div class="open">
+                    </div>                    
                 </div>
-            </div>
-            <div class="activity">
-                <p class="activity-title">迎新专题</p>
-            </div> 
-            <div class="activity">
-                <p class="activity-title">关于</p>
-            </div>                                                
+                <div class="activity" data-flag="true" data-index="3">
+                        <p class="activity-title">关于</p>
+                        <div class="open">
+                        </div>                    
+                </div>                   
+            </div>                                                            
         </div>     
     </div>
-<script type="text/javascript" src="./dll/vendor.js"></script><script type="text/javascript" src="./index.43f1d7177dd057212786.js"></script></body>
+<script type="text/javascript" src="./dll/vendor.js"></script><script type="text/javascript" src="./index.c322c8e35b5607d75285.js"></script></body>
 </html>
