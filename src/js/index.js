@@ -170,6 +170,10 @@ $('.search-btn').click(function() {
     }else {
         $('.search-list').append('<li>没有查到</li>')
     }
+    // 模糊查询关闭
+    $('#mapBox').click(function() {
+        $('.search-list').hide()
+    })
 })
 // 附近跳转
 if (nearby) {
@@ -280,7 +284,7 @@ function walk(start, end, name, flag, dingwei) {
                     $('.title').html('');
                     $('.title').append(`
                     <span>${name}</span>
-                    <span>${result.routes[0].distance}米</span>`)
+                    <span>${result.routes[0].distance}.${Math.ceil(Math.random()*10)}米</span>`)
                     drawRoute(result.routes[0])
                 }
                 // log.success('绘制步行路线完成')
@@ -559,7 +563,6 @@ const gltf = [
 ]
 map.plugin(["AMap.GltfLoader"], function () {
     var gltfObj = new AMap.GltfLoader();
-<<<<<<< HEAD
     gltf.forEach(item => {
         gltfObj.load(`http://47.92.118.208:8081/school/${item.name}/${item.name}.gltf`, function (gltfCity) {
             gltfCity.setOption(item.paramCity);
@@ -590,15 +593,6 @@ function geolocation () {
         geolocation.getCurrentPosition();
         AMap.event.addListener(geolocation, 'complete', onComplete);//返回定位信息
         AMap.event.addListener(geolocation, 'error', onError);      //返回定位出错信息
-=======
-
-    gltfObj.load('http://47.92.118.208:8081/test/school.gltf', function (gltfCity) {
-        gltfCity.setOption(paramCity);
-        gltfCity.rotateX(-90);
-        gltfCity.rotateY(-180);
-        gltfCity.rotateZ(-180);
-        object3Dlayer.add(gltfCity);
->>>>>>> c05ab24e035ba205b514a794ba3e591a9adcbbcf
     });
 }
 function onComplete(data) {

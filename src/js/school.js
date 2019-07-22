@@ -12,13 +12,17 @@ $('.item').click(function () {
             if(res.code == 200) {
                 const schoolList = res.data;
                 $('.open:eq('+ index +')').html('')
-                schoolList.forEach(item => {
+                schoolList.forEach((item, ind) => {
                     let str = '';
                     if(index == 2) {
                          str = `
                         <div class="small-btn">
-                            <a class="dingwei">定位</a>
-                            <a class="tuji" src="./photo.html">图集</a>
+                            <a class="dingwei" href="./index.html?position=${item.center.replace(/ /g, '')}">
+                                <img src="${require('../static/img/location.png')}" alt="">
+                            </a>
+                            <a class="tuji" data-index="${ ind }">
+                                <img src="${require('../static/img/photos.png')}" alt="">
+                            </a>
                         </div>
                         ` 
                     }
@@ -63,6 +67,36 @@ $('.item').click(function () {
                     }
                 })
                 $('.tuji').click(function () {
+                    const ind = $(this).attr('data-index');
+                    // console.log(schoolList[ind])
+                    schoolList[ind].images.forEach((img) => {
+                        console.log(img)
+                        $('.photo-img').append(
+                            `
+                                <img class="fengguang" src="${img}" alt="" />
+                            `
+                        )
+                    })
+                    const length = $('.fengguang').length;
+                    let index = 0;
+                    $('.left').click(function () {
+                        index--;
+                        if(index < 0) {
+                            index = 0;
+                            return false;
+                        }
+                        $('.fengguang').hide();
+                        $('.fengguang:eq('+ index +')').show();
+                    })
+                    $('.right').click(function () {
+                        index++;
+                        if(index >= length) {
+                            index = length - 1;
+                            return false;
+                        }
+                        $('.fengguang').hide();
+                        $('.fengguang:eq('+ index +')').show();
+                    })
                     $('.photo-container').show();
                     $('.photo').show();
                 })
@@ -86,8 +120,12 @@ $(".activity-title").click(function() {
                     if(index == 2) {
                          str = `
                         <div class="small-btn">
-                            <a class="dingwei" href="./index.html?position=${item.center.replace(/ /g, '')}">定位</a>
-                            <a class="tuji" data-index="${ ind }">图集</a>
+                            <a class="dingwei" href="./index.html?position=${item.center.replace(/ /g, '')}">
+                                <img src="${require('../static/img/location.png')}" alt="">
+                            </a>
+                            <a class="tuji" data-index="${ ind }">
+                                <img src="${require('../static/img/photos.png')}" alt="">
+                            </a>
                         </div>
                         `
                     }
