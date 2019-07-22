@@ -559,6 +559,7 @@ const gltf = [
 ]
 map.plugin(["AMap.GltfLoader"], function () {
     var gltfObj = new AMap.GltfLoader();
+<<<<<<< HEAD
     gltf.forEach(item => {
         gltfObj.load(`http://47.92.118.208:8081/school/${item.name}/${item.name}.gltf`, function (gltfCity) {
             gltfCity.setOption(item.paramCity);
@@ -589,6 +590,15 @@ function geolocation () {
         geolocation.getCurrentPosition();
         AMap.event.addListener(geolocation, 'complete', onComplete);//返回定位信息
         AMap.event.addListener(geolocation, 'error', onError);      //返回定位出错信息
+=======
+
+    gltfObj.load('http://47.92.118.208:8081/test/school.gltf', function (gltfCity) {
+        gltfCity.setOption(paramCity);
+        gltfCity.rotateX(-90);
+        gltfCity.rotateY(-180);
+        gltfCity.rotateZ(-180);
+        object3Dlayer.add(gltfCity);
+>>>>>>> c05ab24e035ba205b514a794ba3e591a9adcbbcf
     });
 }
 function onComplete(data) {
