@@ -11,6 +11,7 @@ var config = {
         school: path.resolve(__dirname, '../src/js/school.js'),
         photo: path.resolve(__dirname, '../src/js/photo.js'),
         route: path.resolve(__dirname, '../src/js/route.js'),
+        roam: path.resolve(__dirname, '../src/js/roam.js')
     },
     output: {
         path: path.resolve(__dirname, '../dist'),
@@ -84,7 +85,13 @@ var config = {
           title: "route",
           template: path.resolve(__dirname, '../src/route.html'),
           chunks: ['route']
-        }),              
+        }),
+        new htmlWebpackPlugin({
+          filename: "roam.html",
+          title: "roam",
+          template: path.resolve(__dirname, '../src/roam.html'),
+          chunks: ['roam']
+        }),                 
         new AutodllWebpackpackPlugin({
           inject: true,
           debugger: true,

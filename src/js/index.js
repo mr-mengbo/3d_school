@@ -122,16 +122,16 @@ if (center) {
                    // markerImg.src = "http://a.amap.com/jsapi_demos/static/demo-center/icons/poi-marker-default.png";
                    markerContent.appendChild(markerImg);
                    marker.on('click', function(e) {
-                       console.log(e, i)
-                       window.location.href = './panorama.html?imgurl=' + provinces[i].imgUrl
+                        // console.log(e, i)
                        // console.log($(this)[0].Ie.contentDom)
                        // $('.amap-marker-content').children('div').remove('span');
                        // 点标记中的文本
-                       // var markerSpan = document.createElement("span");
-                       // markerSpan.className = 'marker';
-                       // markerSpan.innerHTML = provinces[i].name;
-                       // $('.amap-marker-content:eq('+ i +')').find('div').append(markerSpan);
-                       // marker.setContent(markerContent); //更新点标记内容
+                       var markerSpan = document.createElement("span");
+                       markerSpan.className = 'marker';
+                       markerSpan.innerHTML = provinces[i].name;
+                       $('.amap-marker-content:eq('+ i +')').find('div').append(markerSpan);
+                       marker.setContent(markerContent); //更新点标记内容
+                       window.location.href = './panorama.html?imgurl=' + provinces[i].imgUrl
                    })
                    marker.setContent(markerContent); //更新点标记内容
                }

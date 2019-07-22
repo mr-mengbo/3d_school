@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>北京财贸职业学院</title>
+    <script>
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+            resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+            recalc = function () {
+                var clientWidth = docEl.clientWidth;
+                if (!clientWidth) return;
+                if(clientWidth>=640){
+                    docEl.style.fontSize = '100px';
+                }else{
+                    docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+                }
+                };
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);    
+        })(document, window);
+    </script> 
+    <script src="http://lib.baomitu.com/chimee-player/1.1.9/chimee-player.browser.js"></script>
+</head>
+<body>
+    <div class="roam">
+        <div class="head">
+            <a class="return" href="./index.html"><</a>
+            <span>北京财贸职业学院</span>
+        </div>
+        <div class="roam-video" id="wrapper">
+             
+        </div>
+        <div class="video-list">
+            
+        </div>
+    </div>
+</body>
+</html>
