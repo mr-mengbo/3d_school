@@ -243,6 +243,10 @@ if (position) {
 }
 // 路线导航 
 if(startCenter && endCenter) {
+    $('.serach').hide();
+    $('.menu').hide();
+    $('.footer').hide();
+    $('.head').show().find('span').html('主页面');
     const startCenterArr = startCenter.split(',');
     const endCenterArr = endCenter.split(',');
     // new AMap.Marker({
@@ -700,6 +704,10 @@ $(".activity-title").click(function() {
                 $(".open-title").click(function() {
                     const center = $(this).parent('.open-con').attr('data-center');
                     if(center) {
+                        $('.serach').hide();
+                        $('.menu').hide();
+                        $('.footer').hide();
+                        $('.head').show().find('span').html('主页面');
                         $(".service-container").hide();
                         $(".container").hide();
                         const endCenterArr = center.split(',');
@@ -720,6 +728,10 @@ $(".activity-title").click(function() {
                             },1000)
                         }
                         $('.place').click(function(){
+                            $('.serach').hide();
+                            $('.menu').hide();
+                            $('.footer').hide();
+                            $('.head').show().find('span').html('主页面');
                             const center = $(this).attr('data-center');
                             $(".service-container").hide();
                             $(".container").hide();
