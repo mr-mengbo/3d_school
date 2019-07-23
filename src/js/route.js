@@ -51,6 +51,10 @@ $.ajax({
                         if(res.code == 200) {
                           const positionList = res.data;
                           $(that).parent('.open').prev('input').val(positionList.name);
+                          $(that).parents('.activity').animate({
+                            height: '1rem',
+                          }, 1000)
+                          $(that).parents('.activity').attr('data-flag', 'true')
                         }
                     }
                 });

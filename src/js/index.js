@@ -93,6 +93,9 @@ let endPosition = [];
 if (center) {
     // 获取全景展示信息
     // http://47.92.118.208/school-map/quanjing/getAll
+    $('.serach').hide();
+    $('.menu').hide();
+    $('.footer').hide();
     $.ajax({ 
         url: "http://47.92.118.208/school-map/quanjing/getAll", 
         success: function(res){
@@ -109,28 +112,22 @@ if (center) {
                        map: map
                    });
                    var markerContent = document.createElement("div");
-                   // console.log((x * 1 == provinces[i].center.split(',')[0]* 1) && (y* 1 == provinces[i].center.split(',')[1]* 1))
-                   // 点标记中的图标
-                   var markerImg = document.createElement("img");
-                   // markerImg.attr('data-type' , 'false');  
-                   markerImg.className = "markerlnglat";
                    if(provinces[i].center == center) {
-                       markerImg.src = "https://vdata.amap.com/icons/b18/1/2.png";
-                   }else {
-                       markerImg.src = "http://a.amap.com/jsapi_demos/static/demo-center/icons/poi-marker-default.png";
-                   }
-                   // markerImg.src = "http://a.amap.com/jsapi_demos/static/demo-center/icons/poi-marker-default.png";
-                   markerContent.appendChild(markerImg);
-                   marker.on('click', function(e) {
-                        // console.log(e, i)
-                       // console.log($(this)[0].Ie.contentDom)
-                       // $('.amap-marker-content').children('div').remove('span');
+                        // 点标记中的图标
+                        var markerImg = document.createElement("img");
+                        // markerImg.attr('data-type' , 'false');  
+                        markerImg.className = "markerlnglat";
+                        markerImg.src = "http://a.amap.com/jsapi_demos/static/demo-center/icons/poi-marker-default.png";
+                        markerContent.appendChild(markerImg);
                        // 点标记中的文本
                        var markerSpan = document.createElement("span");
                        markerSpan.className = 'marker';
                        markerSpan.innerHTML = provinces[i].name;
-                       $('.amap-marker-content:eq('+ i +')').find('div').append(markerSpan);
-                       marker.setContent(markerContent); //更新点标记内容
+                       markerContent.append(markerSpan);
+                   }
+                   // markerImg.src = "http://a.amap.com/jsapi_demos/static/demo-center/icons/poi-marker-default.png";
+                   
+                   marker.on('click', function(e) {
                        window.location.href = './panorama.html?imgurl=' + provinces[i].imgUrl
                    })
                    marker.setContent(markerContent); //更新点标记内容
@@ -154,6 +151,8 @@ $('.search-btn').click(function() {
         $('.search-position').click(function() {
             $('.search-list').hide();
             $('.footer').hide();
+            $('.school').hide();
+            $('.panorama').hide();
             const name = $(this).html();
             const position = $(this).attr('data-position').split(',');
             map.setCenter(position);
@@ -179,6 +178,8 @@ $('.search-btn').click(function() {
 if (nearby) {
     $('.head').show().find('span').html('退出周边');
     $('.return').attr('href', './periphery.html');
+    $('.school').hide();
+    $('.panorama').hide();
     // 获取周边详细信息
     $.ajax({ 
         url: `http://47.92.118.208/school-map/circum/getByTypeId?typeId=${nearby}`, 
@@ -205,6 +206,7 @@ if (nearby) {
                     $('.nearby-details').click(function () {
                         $('.nearby').hide();
                         $('.footer').hide();
+                        const name = $(this).find('.left-title').html();
                         const position = $(this).attr('data-position').split(',');
                         endPosition = position;
                         map.setCenter(position);

@@ -8,9 +8,9 @@
     overflow: hidden;
     .title-img {
       position: absolute;
-      left: 0;
+      left: 1rem;
       top: 0;
-      height: 1.2rem;
+      height: 1rem;
     }
     .head {
       position: absolute;
@@ -29,6 +29,11 @@
         left: .2rem;
         color: #fff;
         font-size: 36px;
+        img {
+          width: .6rem;
+          height: .6rem;
+          margin-top: .1rem;
+        }
       }
     }
     .school-container {
@@ -62,7 +67,6 @@
         }
       }
       .activity-con {
-        margin-top: .6rem;
         height: 80%;
         overflow: scroll;
       }
@@ -98,8 +102,9 @@
               left: 0;
               top: 0;
               height: 1rem;
-              background: skyblue;
-              width: 90%;
+              background: #888888;
+              border-radius: .1rem;
+              width: 100%;
               line-height: 1rem;
               padding-left: .2rem;
               box-sizing: border-box;
@@ -107,7 +112,7 @@
             }
             .small-open {
                 margin-top: 1.1rem;
-                width: 90%;
+                width: 100%;
                 height: 4rem;
                 overflow: scroll;
                 position: relative;
@@ -171,10 +176,12 @@
       .left,
       .right {
           position: absolute;
-          top: 50%;
-          transform: translateY(-50%);
+          bottom: -1rem;
           display: block;
-          font-size: 1rem;
+          font-size: .3rem;
+          background: #ccc;
+          border-radius: .1rem;
+          padding: .2rem;
       }
       .left {
           left: .4rem;

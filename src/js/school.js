@@ -178,16 +178,16 @@ $(".activity-title").click(function() {
                 $('.tuji').click(function () {
                     const ind = $(this).attr('data-index');
                     // console.log(schoolList[ind])
+                    $('.photo-img').html('');
+                    const length = schoolList[ind].images.length;
+                    let index = 0;
                     schoolList[ind].images.forEach((img) => {
-                        console.log(img)
                         $('.photo-img').append(
                             `
                                 <img class="fengguang" src="${img}" alt="" />
                             `
                         )
                     })
-                    const length = $('.fengguang').length;
-                    let index = 0;
                     $('.left').click(function () {
                         index--;
                         if(index < 0) {
