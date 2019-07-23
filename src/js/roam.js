@@ -4,7 +4,7 @@ import { GetQueryString, fuzzyQuery } from '../utils/util';
 import $ from 'jquery';
 const player = new ChimeePlayer({
     wrapper: '#wrapper',  // video dom容器
-    src: 'http://47.92.118.208:8081/video/学校北门.mp4',
+    src: 'http://47.92.118.208:8081/video/整体录屏.mp4',
     controls: false,
     autoplay: true,
 });
