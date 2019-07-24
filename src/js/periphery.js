@@ -20,15 +20,15 @@ $.ajax({
                     </li>
                     `
                 )
-                $('.title').append(
-                    `
-                    <li class="item">
-                        <a href="./index.html?nearby=${item.id}">
-                            <span>${item.type}</span>
-                        </a>
-                    </li>
-                    `
-                )
+                // $('.title').append(
+                //     `
+                //     <li class="item">
+                //         <a href="./index.html?nearby=${item.id}">
+                //             <span>${item.type}</span>
+                //         </a>
+                //     </li>
+                //     `
+                // )
             });
         }
     }

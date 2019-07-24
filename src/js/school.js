@@ -42,28 +42,28 @@ $('.item').click(function () {
                 });
                 var length =  $('.activity:eq('+ index +')').find('.open-con').length + 1 || 1;
                 $('.activity').animate({
-                    height: '1rem', 
-                },1000)
+                    height: '.8rem', 
+                },300)
                 $('.activity').attr('data-flag', 'true')
                 $('.activity:eq('+ index +')').animate({
-                    height: length * 2.1 + 'rem', 
-                },1000)
+                    height: length * 1.95 + 'rem', 
+                },300)
                 $('.activity:eq('+ index +')').attr('data-flag', 'flase')
                 // 底下菜单切换
                 $(".open-title").click(function() {
                     var flag = $(this).parent('.open-con').attr('data-flag');
                     $('.open-con').animate({
-                        height: '1rem', 
-                    },1000)
+                        height: '.8rem', 
+                    },300)
                     $('.open-con').attr('data-flag', 'true')
                     if(flag == "true") {
                         $(this).parent('.open-con').animate({
                             height: '4rem', 
-                        },1000)
+                        },300)
                         $(this).parent('.open-con').attr('data-flag', 'flase')
                         $(this).parent('.open-con').siblings('.open-con').animate({
-                            height: '1rem', 
-                        },1000)
+                            height: '.8rem', 
+                        },300)
                     }
                 })
                 $('.tuji').click(function () {
@@ -144,35 +144,35 @@ $(".activity-title").click(function() {
                    ) 
                 });
                 $('.activity').animate({
-                    height: '1rem', 
-                },1000)
+                    height: '.8rem', 
+                },300)
                 $('.activity').attr('data-flag', 'true')
                 if(flag == "true") {
                     var length =  $('.activity:eq('+ index +')').find('.open-con').length + 1 || 1;
                     $('.activity:eq('+ index +')').animate({
-                        height: length * 2.1 + 'rem', 
-                    },1000)
+                        height: length * 1.95 + 'rem', 
+                    },300)
                     $('.activity:eq('+ index +')').attr('data-flag', 'flase')
                 }
                 $('.open-con').animate({
-                    height: '1rem', 
-                },1000)
+                    height: '.8rem', 
+                },300)
                 $('.open-con').attr('data-flag', 'true')
                 // 底下菜单切换
                 $(".open-title").click(function() {
                     var flag = $(this).parent('.open-con').attr('data-flag');
                     $('.open-con').animate({
-                        height: '1rem', 
-                    },1000)
+                        height: '.8rem', 
+                    },300)
                     $('.open-con').attr('data-flag', 'true')
                     if(flag == "true") {
                         $(this).parent('.open-con').animate({
                             height: '4rem', 
-                        },1000)
+                        },300)
                         $(this).parent('.open-con').attr('data-flag', 'flase')
                         $(this).parent('.open-con').siblings('.open-con').animate({
-                            height: '1rem', 
-                        },1000)
+                            height: '.8rem', 
+                        },300)
                     }
                 })
                 $('.tuji').click(function () {

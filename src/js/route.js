@@ -23,7 +23,7 @@ $.ajax({
                 if(flag == "true") {
                     var length =  $(this).parent('.activity').find('.open-title').length + 1 || 1;
                     $(this).parent('.activity').animate({
-                        height: length * 1.06 + 'rem', 
+                        height: length * .9 + 'rem', 
                     },1000)
                     $(this).parent('.activity').attr('data-flag', 'flase')
                     // $(this).parent('.activity').siblings('.activity').hide();
@@ -33,7 +33,7 @@ $.ajax({
                     // $(this).siblings('.activity').attr('data-flag', 'true')
                 }else {
                     $(this).parent('.activity').animate({
-                        height: '1rem', 
+                        height: '.8rem', 
                     },1000)
                     $(this).parent('.activity').attr('data-flag', 'true')
                     // $('.activity').show()
@@ -52,7 +52,7 @@ $.ajax({
                           const positionList = res.data;
                           $(that).parent('.open').prev('input').val(positionList.name);
                           $(that).parents('.activity').animate({
-                            height: '1rem',
+                            height: '.8rem',
                           }, 1000)
                           $(that).parents('.activity').attr('data-flag', 'true')
                         }

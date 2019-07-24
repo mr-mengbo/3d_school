@@ -113,6 +113,7 @@ if (center) {
                    });
                    var markerContent = document.createElement("div");
                    if(provinces[i].center == center) {
+                        map.setCenter(provinces[i].center.split(','));
                         // 点标记中的图标
                         var markerImg = document.createElement("img");
                         // markerImg.attr('data-type' , 'false');  
@@ -156,6 +157,7 @@ $('.search-btn').click(function() {
             const name = $(this).html();
             const position = $(this).attr('data-position').split(',');
             map.setCenter(position);
+            map.clearMap();
             const marker = new AMap.Marker({
                 position,
                 offset: new AMap.Pixel(-10, -10),
@@ -163,6 +165,7 @@ $('.search-btn').click(function() {
                 map: map
             });
             marker.on('click', function(e) {
+                $('.serach').hide();
                 walk([116.648432,39.92166], position, name, false)
             })
         })
@@ -180,6 +183,7 @@ if (nearby) {
     $('.return').attr('href', './periphery.html');
     $('.school').hide();
     $('.panorama').hide();
+    $('.serach').hide();
     // 获取周边详细信息
     $.ajax({ 
         url: `http://47.92.118.208/school-map/circum/getByTypeId?typeId=${nearby}`, 
@@ -228,6 +232,10 @@ if (nearby) {
     $('.nearby').show();
 }
 if (position) {
+    $('.serach').hide();
+    $('.menu').hide();
+    $('.footer').hide();
+    $('.head').show().find('span').html('主页面');
     const positions = position.split(',');
     map.setCenter(positions);
     const marker = new AMap.Marker({
@@ -380,7 +388,7 @@ const gltf = [
     {
         name: 'caimaodalou',
         paramCity: {
-            position: new AMap.LngLat(116.647296,39.92038), // 必须
+            position: new AMap.LngLat(116.647296,39.92045), // 必须
             scale: 70, // 非必须，默认1
             height: 0,  // 非必须，默认0
             scene: 0, // 非必须，默认0
@@ -389,7 +397,7 @@ const gltf = [
     {
         name: 'dianjiaoguan',
         paramCity: {
-            position: new AMap.LngLat(116.647219,39.92047), // 必须
+            position: new AMap.LngLat(116.647260,39.92047), // 必须
             scale: 70, // 非必须，默认1
             height: 0,  // 非必须，默认0
             scene: 0, // 非必须，默认0
@@ -470,7 +478,7 @@ const gltf = [
     {
         name: 'shibei',
         paramCity: {
-            position: new AMap.LngLat(116.647284,39.920514), // 必须
+            position: new AMap.LngLat(116.647284,39.920450), // 必须
             scale: 70, // 非必须，默认1
             height: 0,  // 非必须，默认0
             scene: 0, // 非必须，默认0
@@ -686,19 +694,19 @@ $(".activity-title").click(function() {
                 });
                 
                 $('.activity').animate({
-                    height: '1rem', 
-                },1000)
+                    height: '.8rem', 
+                },300)
                 $('.activity').attr('data-flag', 'true')
                 if(flag == "true") {
                     var length =  $('.activity:eq('+ index +')').find('.open-con').length + 1 || 1;
                     $('.activity:eq('+ index +')').animate({
-                        height: length * 2.1 + 'rem', 
-                    },1000)
+                        height: length * 1.95 + 'rem', 
+                    },300)
                     $('.activity:eq('+ index +')').attr('data-flag', 'flase')
                 }
                 $('.open-con').animate({
-                    height: '1rem', 
-                },1000)
+                    height: '.8rem', 
+                },300)
                 $('.open-con').attr('data-flag', 'true')
                 // 底下菜单切换
                 $(".open-title").click(function() {
@@ -715,17 +723,17 @@ $(".activity-title").click(function() {
                     }else {
                         var flag = $(this).parent('.open-con').attr('data-flag');
                         $('.open-con').animate({
-                            height: '1rem', 
-                        },1000)
+                            height: '.8rem', 
+                        },300)
                         $('.open-con').attr('data-flag', 'true')
                         if(flag == "true") {
                             $(this).parent('.open-con').animate({
                                 height: '4rem', 
-                            },1000)
+                            },300)
                             $(this).parent('.open-con').attr('data-flag', 'flase')
                             $(this).parent('.open-con').siblings('.open-con').animate({
-                                height: '1rem', 
-                            },1000)
+                                height: '.8rem', 
+                            },300)
                         }
                         $('.place').click(function(){
                             $('.serach').hide();
@@ -753,4 +761,13 @@ $('.daohang').click(function () {
         geolocation();
         walk(initCenter, endPosition, name, true, true);
     }, 3000);
+})
+// 视角切换
+$('.3D').click(function () {
+    map.setPitch(45);
+    map.setRotation(25);
+})
+$('.pingmian').click(function () {
+    map.setPitch(0);
+    map.setRotation(0);
 })
