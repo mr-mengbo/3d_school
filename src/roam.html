@@ -23,7 +23,9 @@
             doc.addEventListener('DOMContentLoaded', recalc, false);    
         })(document, window);
     </script> 
-    <script src="http://lib.baomitu.com/chimee-player/1.1.9/chimee-player.browser.js"></script>
+    <!-- <script src="http://lib.baomitu.com/chimee-player/1.1.9/chimee-player.browser.js"></script> -->
+    <!-- <script src="//cdn.jsdelivr.net/npm/xgplayer@1.1.4/browser/index.js" charset="utf-8"></script>
+    <script src="//cdn.jsdelivr.net/npm/xgplayer-flv.js/browser/index.js" charset="utf-8"></script> -->
 </head>
 <body>
     <div class="roam">
@@ -33,8 +35,9 @@
             </a>
             <span>主页面</span>
         </div>
-        <div class="roam-video" id="wrapper">
-             
+        <video id="myvideo" style="object-fit: fill; width: 100%; height: 100%; z-index: 0;position:fixed " playsinline="true" webkit-playsinline="true" x-webkit-airplay="allow" airplay="allow" loop="loop" x5-video-player-type="h5" x5-video-player-fullscreen="true" x5-video-orientation="portrait" x-webkit-airplay="true" playsinline webkit-playsinline="true"  src="http://wxy.bjczy.edu.cn:8066/mv/整体录屏.mp4" preload="load" width="100%" height="100%"></video>
+        <div class="play">
+            <img src="https://mstatic.soyoung.com/m/static/img/product/video_go.png">
         </div>
         <div class="video-list">
             

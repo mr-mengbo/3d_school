@@ -179,7 +179,7 @@ $('.search-btn').click(function() {
 })
 // 附近跳转
 if (nearby) {
-    $('.head').show().find('span').html('退出周边');
+    $('.head').show().find('span').html('发现周边');
     $('.return').attr('href', './periphery.html');
     $('.school').hide();
     $('.panorama').hide();

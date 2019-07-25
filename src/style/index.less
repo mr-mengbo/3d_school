@@ -8,36 +8,37 @@
   }
   .serach {
     position: absolute;
-    left: 10%;
-    top: .3rem;
-    width: 90%;
+    left: 0;
+    top: 0;
+    width: 100%;
     box-sizing: border-box;
+    padding: .15rem .2rem;
+    background: #ffffff;
+    text-align: center;
     input {
       border: none;
       outline: none;
       height: .7rem;
       width: 70%;
       font-size: .32rem;
-      background: #fff;
-      padding-left: 20px;
+      background: #ededed;
+      padding-left: .8rem;
       border-radius: .1rem;
+      line-height: .7rem;
     }
     .find {
       width: .5rem;
       height: .5rem;
-      position: absolute;
-      right: 26%;
-      top: .2rem;
+      position: fixed;
+      left: .6rem;
+      top: .3rem;
     }
     button {
-      height: .74rem;
       border: none;
       outline: none;
-      color: #fff;
-      background: skyblue;
-      font-size: .24rem;
-      border-radius: .1rem;
-      padding: .2rem;
+      color: #000;
+      background: #fff;
+      font-size: .32rem;
     }
     .search-list {
       position: absolute;
@@ -111,16 +112,16 @@
   }
   .head {
     position: absolute;
-    left: 5%;
+    left: 0;
     top: 0;
-    width: 90%;
+    width: 100%;
     height: .8rem;
-    background: #215994;
-    text-align: center;
+    background: #fff;
+    padding-left: .8rem;
+    box-sizing: border-box;
     line-height: .8rem;
-    color: #fff;
     font-size: .36rem;
-    border-radius: .1rem;
+    color: #000;
     .return {
       position: absolute;
       left: .2rem;
@@ -204,14 +205,13 @@
     height: 100%;
     background: rgba(0, 0, 0, .5);
   }
-  .container,
-  .school-container {
+  .container {
     position: absolute;
     top: 0;
     right: 0;
     width: 60%;
     height: 100%;
-    background: #fff;
+    background: #ededed;
     padding: .1rem;
     box-sizing: border-box;
     z-index: 99;
@@ -257,7 +257,7 @@
         width: 100%;
         padding-left: .2rem;
         box-sizing: border-box;
-        background: #B9B9B9;
+        background: #fff;
         border-radius: .1rem;
         line-height: .8rem;
         margin: 0;
@@ -277,7 +277,7 @@
             left: 0;
             top: 0;
             height: .8rem;
-            background: #888888;
+            background: #f6f6f6;
             width: 100%;
             line-height: .8rem;
             padding-left: .2rem;
@@ -298,7 +298,7 @@
                 min-height: 4rem;
                 .place {
                   height: .8rem;
-                  background: #888888;
+                  background: #f6f6f6;
                   border-radius: .1rem;
                   width: 100%;
                   line-height: .8rem;
