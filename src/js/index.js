@@ -660,15 +660,7 @@ $(".activity-title").click(function() {
                             `
                         })
                     }
-                    if(index == 2) {
-                        $('.open:eq('+ index +')').append(
-                            `
-                            <div class="open-con" data-center="${item.description}">
-                                 <p class="open-title">${item.title}</p>
-                             </div>
-                            `
-                        ) 
-                    } else if(index == 3) {
+                     if(index == 3) {
                         $('.open:eq('+ index +')').append(
                             `
                             <div class="open-con" data-flag="true" style="font-size: .24rem">
