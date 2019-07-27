@@ -65,6 +65,14 @@ $.ajax({
 $('.walk').click(function() {
     const start = $('.start').val();
     const end = $('.end').val();
+    if(start == end) {
+        alert('请输入不同的地点')
+        return false;    
+    }
+    if(!start || !end) {
+        alert('请输入地点')
+        return false;        
+    }
     const startPosition = fuzzyQuery(mapList, start);
     const endtPosition = fuzzyQuery(mapList, end);
     if(startPosition.length == 0) {

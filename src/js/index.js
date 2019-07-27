@@ -93,6 +93,7 @@ let endPosition = [];
 if (center) {
     // 获取全景展示信息
     // http://47.92.118.208/school-map/quanjing/getAll
+    $('.head').show().find('span').html('退出全景');
     $('.serach').hide();
     $('.menu').hide();
     $('.footer').hide();
@@ -238,8 +239,9 @@ if (position) {
     $('.head').show().find('span').html('主页面');
     const positions = position.split(',');
     map.setCenter(positions);
+    map.clearMap();
     const marker = new AMap.Marker({
-        positions,
+        position: positions,
         offset: new AMap.Pixel(-10, -10),
         icon: 'https://webapi.amap.com/theme/v1.3/markers/n/end.png',
         map: map
@@ -566,6 +568,15 @@ const gltf = [
         }
     }, 
     {
+        name: 'shuiba',
+        paramCity: {
+            position: new AMap.LngLat(116.647378,39.920336), // 必须
+            scale: 70, // 非必须，默认1
+            height: 0,  // 非必须，默认0
+            scene: 0, // 非必须，默认0
+        }
+    }, 
+    {
         name: 'xueshengzhongxin',
         paramCity: {
             position: new AMap.LngLat(116.647265,39.920376), // 必须
@@ -691,14 +702,26 @@ $(".activity-title").click(function() {
                 $('.activity').attr('data-flag', 'true')
                 if(flag == "true") {
                     var length =  $('.activity:eq('+ index +')').find('.open-con').length + 1 || 1;
-                    $('.activity:eq('+ index +')').animate({
-                        height: length * 1.95 + 'rem', 
-                    },300)
+                    if(index == 3) {
+                        $('.activity:eq('+ index +')').animate({
+                            height: '3rem', 
+                        },300)
+                    }else {
+                        $('.activity:eq('+ index +')').animate({
+                            height: length * 1.95 + 'rem', 
+                        },300)
+                    }
                     $('.activity:eq('+ index +')').attr('data-flag', 'flase')
                 }
-                $('.open-con').animate({
-                    height: '.8rem', 
-                },300)
+                if(index == 3) {
+                    $('.open-con').animate({
+                        height: '2rem', 
+                    },300)
+                }else {
+                    $('.open-con').animate({
+                        height: '.8rem', 
+                    },300)
+                }
                 $('.open-con').attr('data-flag', 'true')
                 // 底下菜单切换
                 $(".open-title").click(function() {
@@ -733,10 +756,17 @@ $(".activity-title").click(function() {
                             $('.footer').hide();
                             $('.head').show().find('span').html('主页面');
                             const center = $(this).attr('data-center');
+                            const name = $(this).html();
                             $(".service-container").hide();
                             $(".container").hide();
                             const endCenterArr = center.split(',');
-                            walk([116.648432,39.92166], endCenterArr, name, true)
+                            new AMap.Marker({
+                                position: endCenterArr,
+                                offset: new AMap.Pixel(-10, -10),
+                                icon: 'https://webapi.amap.com/theme/v1.3/markers/n/end.png',
+                                map: map
+                            });
+                            walk([116.648432,39.92166], endCenterArr, name, false)
                         })                        
                     }
                 })

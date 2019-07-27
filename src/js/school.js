@@ -111,7 +111,7 @@ $(".activity-title").click(function() {
         url: `http://47.92.118.208/school-map/schoolInfo/getByType?type=${index}`, 
         success: function(res){
             console.log('校园查询',res)
-            let schoolList
+            let schoolList = [];
             if(res.code == 200) {
                 schoolList = res.data;
                 $('.open:eq('+ index +')').html('')
@@ -175,12 +175,14 @@ $(".activity-title").click(function() {
                         },300)
                     }
                 })
+                let lengths;
+                let indexs = 0;
                 $('.tuji').click(function () {
                     const ind = $(this).attr('data-index');
                     // console.log(schoolList[ind])
                     $('.photo-img').html('');
-                    const length = schoolList[ind].images.length;
-                    let index = 0;
+                    lengths = schoolList[ind].images.length;
+                    console.log(lengths)
                     schoolList[ind].images.forEach((img) => {
                         $('.photo-img').append(
                             `
@@ -188,32 +190,40 @@ $(".activity-title").click(function() {
                             `
                         )
                     })
-                    $('.left').click(function () {
-                        index--;
-                        if(index < 0) {
-                            index = 0;
-                            return false;
-                        }
-                        $('.fengguang').hide();
-                        $('.fengguang:eq('+ index +')').show();
-                    })
-                    $('.right').click(function () {
-                        index++;
-                        if(index >= length) {
-                            index = length - 1;
-                            return false;
-                        }
-                        $('.fengguang').hide();
-                        $('.fengguang:eq('+ index +')').show();
-                    })
                     $('.photo-container').show();
                     $('.photo').show();
+                })
+                $('.left').click(function () {
+                    indexs--;
+                    console.log(indexs, lengths)
+                    if(indexs < 0) {
+                        indexs = 0;
+                        return false;
+                    }
+                    $(this).css({"background": "#fff"})
+                    $('.right').css({"background": "skyblue"})
+                    $('.fengguang').hide();
+                    $('.fengguang:eq('+ indexs +')').show();
+                })
+                $('.right').click(function () {
+                    indexs++;
+                    console.log(indexs, lengths)
+                    if(indexs >= lengths) {
+                        indexs = lengths - 1;
+                        return false;
+                    }
+                    $(this).css({"background": "#fff"})
+                    $('.left').css({"background": "skyblue"})
+                    $('.fengguang').hide();
+                    $('.fengguang:eq('+ indexs +')').show();
                 })
             }
         }
     });      
 })
 $('.photo-container').click(function () {
+    $('.left').css({"background": "skyblue"})
+    $('.right').css({"background": "skyblue"})
     $('.photo-container').hide();
     $('.photo').hide();
 })
