@@ -118,9 +118,11 @@ videoList.forEach(item => {
     )
 })
 $('.video-item').click(function () {
+    $('.video-item').css("background", "rgba(255, 255, 255, 0.5)")
     const url = $(this).attr('data-video');
     video.src = url
     video.play()
+    $(this).css("background", "skyblue")
     // console.log(url)
     // player.load(url);
 })
