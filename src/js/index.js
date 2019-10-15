@@ -60,6 +60,7 @@ const map = new AMap.Map("mapBox", {
     center: [116.64863,39.920623],
     // mapStyle: 'amap://styles/macaron',
     // showIndoorMap: false,
+    zoomEnable: true, // 地图是否可缩放
     forceVector:true,
     expandZoomRange: true,
     buildingAnimation:true,//楼块出现是否带动画
@@ -72,6 +73,11 @@ const map = new AMap.Map("mapBox", {
         imageLayer5
     ]
 });
+// 限制显示范围
+var bounds = map.getBounds();
+map.setLimitBounds(bounds);
+// 取消楼快
+// map.setFeatures( ['bg', 'road', 'point']);
 let mapList = [];
 // 获取模糊查询信息
 $.ajax({ 
