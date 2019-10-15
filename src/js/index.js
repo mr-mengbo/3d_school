@@ -48,19 +48,21 @@ var imageLayer5 = new AMap.ImageLayer({
 });
 const map = new AMap.Map("mapBox", {
     viewMode:'3D',
-    // rotateEnable:false,
-    // pitchEnable:false,
-    pitch: 0,
-    rotation: 0,
+    resizeEnable: true,
+    rotateEnable: true,
+    pitchEnable: true,
+    pitch: 80,
+    rotation: -15,
     zoom: 18,
     zooms:[16,19],
-    showBuildingBlock: false, // 设置地图显示3D楼块效果，移动端也可使用。推荐使用。
-    showLabel: false,
+    showBuildingBlock: true, // 设置地图显示3D楼块效果，移动端也可使用。推荐使用。
+    // showLabel: false,
     center: [116.64863,39.920623],
     // mapStyle: 'amap://styles/macaron',
-    showIndoorMap: false,
+    // showIndoorMap: false,
     forceVector:true,
     expandZoomRange: true,
+    buildingAnimation:true,//楼块出现是否带动画
     layers: [
         new AMap.TileLayer(),
         imageLayer1,
@@ -586,18 +588,18 @@ const gltf = [
         }
     }
 ]
-map.plugin(["AMap.GltfLoader"], function () {
-    var gltfObj = new AMap.GltfLoader();
-    gltf.forEach(item => {
-        gltfObj.load(`http://47.92.118.208:8081/school/${item.name}/${item.name}.gltf`, function (gltfCity) {
-            gltfCity.setOption(item.paramCity);
-            gltfCity.rotateX(-90);
-            gltfCity.rotateY(-180);
-            gltfCity.rotateZ(-180);
-            object3Dlayer.add(gltfCity);
-        });
-    })
-});
+// map.plugin(["AMap.GltfLoader"], function () {
+//     var gltfObj = new AMap.GltfLoader();
+//     gltf.forEach(item => {
+//         gltfObj.load(`http://47.92.118.208/3dschool/School/${item.name}/${item.name}.gltf`, function (gltfCity) {
+//             gltfCity.setOption(item.paramCity);
+//             gltfCity.rotateX(-90);
+//             gltfCity.rotateY(-180);
+//             gltfCity.rotateZ(-180);
+//             object3Dlayer.add(gltfCity);
+//         });
+//     })
+// });
 // 地图定位
 function geolocation () {
     map.plugin('AMap.Geolocation', function () {
